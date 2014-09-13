@@ -136,7 +136,7 @@ var sysExHead39 = [0xF0, 0x43, 0x79, 0x09, 0x11];
 function getMessage(str,notes) {
 	var interval=100;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -165,7 +165,7 @@ function getMessage(str,notes) {
 function getAtari() {
 	var interval=100;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -193,7 +193,7 @@ function getAtari() {
 function getMigi() {
 	var interval=100;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -215,7 +215,7 @@ function getMigi() {
 function getHidari() {
 	var interval=100;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -327,7 +327,7 @@ function getItai() {
 function getUrya() {
 	var interval=90;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -350,13 +350,42 @@ function getUrya() {
 function getYattane() {
 	var interval=90;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
 	data.push(wordTbl1["や"]);
 	data.push(wordTbl2["た"]);
 	data.push(wordTbl1["ね"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	timestamp+=30;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	timestamp+=200;
+
+	messages.push({timestamp:timestamp,message:[0x90,76,0x7f]});
+	timestamp+=50;
+	messages.push({timestamp:timestamp,message:[0x80,76,0x40]});
+
+	messages.push({timestamp:timestamp,message:[0x90,84,0x7f]});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,84,0x40]});
+	return messages;
+}
+
+function getIkuyo() {
+	var interval=90;
+	var timestamp = 0;
+	var data = sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["い"]);
+	data.push(wordTbl2["く"]);
+	data.push(wordTbl1["よ"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
 	timestamp+=10;
