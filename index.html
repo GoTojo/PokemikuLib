@@ -123,6 +123,14 @@
 				}
 			}			
 		}
+		function funcurya() {
+			var messages = getUrya();
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
 	</script>
 </head>
 <body>
@@ -143,6 +151,7 @@
 	<button type="button" id="mannaka" onclick="funcmannaka()">まんなか</button>
 	<button type="button" id="ite" onclick="funcite()">いてっ</button>
 	<button type="button" id="itai" onclick="funcitai()">いたいっ</button>
+	<button type="button" id="urya" onclick="funcurya()">うりゃっ</button>
 	</p>
 	<br/>
 		<script  type="text/javascript">
