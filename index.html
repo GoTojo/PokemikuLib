@@ -76,7 +76,7 @@
 		}
 
 		function funcatari() {
-			var messages = getAtari(500);
+			var messages = getAtari(100);
 			if (output) {
 				for (var i=0;i<messages.length;i++) {
 					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);

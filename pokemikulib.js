@@ -1,5 +1,3 @@
-var eVY1mode = 0;
-
 var wordTbl1 = {
 	"あ" : 0x00,
 	"い" : 0x01,
@@ -134,175 +132,7 @@ var wordTbl2 = {
 	"りゅ" : 0x75,
 	"りょ" : 0x76
 };
-
-// nsx1 to nsx39 table
-// Copyright 2014 gotojo All Rights Reserved. 
-
-var nsx1tbl = [
-    "a",        // "あ"
-    "i",        // "い"
-    "M",        // "う"
-    "e",        // "え"
-    "o",        // "お"
-    "k a",      // "か"
-    "k' i",     // "き"
-    "k M",      // "く"
-    "k e",      // "け"
-    "k o",      // "こ"
-    "g a",      // "が"
-    "g' i",     // "ぎ"
-    "g M",      // "ぐ"
-    "g e",      // "げ"
-    "g o",      // "ご"
-    "k' a",     // "きゃ"
-    "k' M",     // "きゅ"
-    "k' o",     // "きょ"
-    "N' a",     // "ぎゃ"
-    "N' o",     // "ぎょ"
-    "g' M",     // "ぎゅ" 
-    "s a",      // "さ"
-    "s i",      // "すぃ"
-    "s M",      // "す"
-    "s e",      // "せ"
-    "s o",      // "そ"
-    "dz a",     // "ざ"
-    "dz i",     // "ずぃ"
-    "dz M",     // "ず"
-    "dZ e",     // "ぜ"
-    "dz o",     // "ぞ"
-    "S a",      // "しゃ"
-    "S i",      // "し"
-    "S M",      // "しゅ"
-    "S e",      // "しぇ"
-    "S o",      // "しょ"
-    "dZ a",     // "じゃ"
-    "dZ i",     // "じ"
-    "dZ M",     // "じゅ"
-    "dZ e",     // "じぇ"
-    "dZ o",     // "じょ"
-    "t a",      // "た"
-    "t' i",     // "てぃ"
-    "t M",      // "とぅ"
-    "t e",      // "て"
-    "t o",      // "と"
-    "d a",      // "だ"
-    "d' i",     // "でぃ"
-    "d M",      // "どぅ"
-    "d e",      // "で"
-    "d o",      // "ど"
-    "t' M",     // "てゅ"
-    "d' M",     // "でゅ"
-    "tS a",     // "ちゃ"
-    "tS i",     // "ち"
-    "tS M",     // "ちゅ"
-    "tS e",     // "ちぇ"
-    "tS o",     // "ちょ"
-    "ts a",     // "つぁ"
-    "ts i",     // "つぃ"
-    "ts M",     // "つ"
-    "ts e",     // "つぇ"
-    "ts o",     // "つぉ"
-    "n a",      // "な"
-    "J i",      // "に"
-    "n M",      // "ぬ"
-    "n e",      // "ね"
-    "n o",      // "の"
-    "J a",      // "にゃ"
-    "J M",      // "にゅ"
-    "J o",      // "にょ"
-    "h a",      // "は"
-    "C i",      // "ひ"
-    "p\\ M",    // "ふ"
-    "h e",      // "へ"
-    "h o",      // "ほ"
-    "b a",      // "ば"
-    "b' i",     // "び"
-    "b M",      // "ぶ"
-    "b e",      // "べ"
-    "b o",      // "ぼ"
-    "p a",      // "ぱ"
-    "p' i",     // "ぴ"
-    "p M",      // "ぷ"
-    "p e",      // "ぺ"
-    "p o",      // "ぽ"
-    "C a",      // "ひゃ"
-    "C M",      // "ひゅ"
-    "C o",      // "ひょ"
-    "b' a",     // "びゃ"
-    "b' M",     // "びゅ"
-    "b' o",     // "びょ"
-    "p' a",     // "ぴゃ"
-    "p' M",     // "ぴゅ"
-    "p' o",      // "ぴょ"
-    "p\\ a",     // "ふぁ"
-    "p\\' i",    // "ふぃ"
-    "p\\' M",    // "ふゅ"
-    "p\\ e",     // "ふぇ"
-    "p\\ o",     // "ふぉ"
-    "m a",      // "ま"
-    "m i",      // "み"
-    "m M",      // "む"
-    "m e",      // "め"
-    "m o",      // "も"
-    "m' a",     // "みゃ"
-    "m' M",     // "みゅ" 
-    "m' o",     // "みょ"
-    "j a",      // "や"
-    "j M",      // "ゆ"
-    "j o",      // "よ"
-    "4 a",      // "ら"
-    "4' i",     // "り"
-    "4 M",      // "る"
-    "4 e",      // "れ"
-    "4 o",      // "ろ"      
-    "4' o",     // "りょ" 
-    "4' M",     // "りゅ"
-    "4' a",     // "りゃ" 
-    "w a",      // "わ"
-    "w i",      // "ゐ"
-    "w e",      // "ゑ"
-    "o",        // "を"
-    "N\\",      // "ん"
-    "m",        // "ん"
-    "N",        // "ん"
-    "J",        // "ん"
-    "n"        // "ん"
-];
-
-function getSysEx(str,output) {
-	var word;
-	if (str in wordTbl1) {
-		word = wordTbl1[str];
-	} else if (str in wordTbl2) {
-		word = wordTbl2[str];
-	} else {
-		return null;
-	}
-	if (evy1mode) {
-		var sysExHead = [0xF0, 0x43, 0x79, 0x09, 0x00, 0x50, 0x10];
-		var data =　sysExHead.concat();
-		var worddata=nsx1tbl[word];
-		var test="test";
-		for (var i=0; i<worddata.length;i++) {
-			data.push(worddata.charCodeAt(i));
-		}
-		data.push(0);
-		data.push(0xf7);
-		return data;		
-	} else {
-		var sysExHead = [0xF0, 0x43, 0x79, 0x09, 0x11];
-		var data =　sysExHead.concat();
-		data.push(0x0A);
-		data.push(0x00);
-		data.push(word);
-		data.push(0xf7);
-		return data;
-	}
-};
-
 var sysExHead39 = [0xF0, 0x43, 0x79, 0x09, 0x11];
-var noteonmsg = [0x90, 0x40, 0x7f];
-var noteoffmsg = [0x80, 0x40, 0x40];
 function getAtari(interval) {
 	var timestamp = 0;
 	var data =　sysExHead39.concat();
@@ -311,31 +141,31 @@ function getAtari(interval) {
 	data.push(0x00);
 	data.push(wordTbl1["あ"]);
 	data.push(0xf7);
-	messages.push({timestamp:timestamp,message:noteonmsg});
+	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	messages.push({timestamp:timestamp,message:data});
 	timestamp+=interval;
-	messages.push({timestamp:timestamp,message:noteoffmsg});
+	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
-	messages.push({timestamp:timestamp,message:noteonmsg});
+	messages.push({timestamp:timestamp,message:[0x90,64,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
+	data.push(0x0A);
+	data.push(0x00);
 	data.push(wordTbl1["た"]);
-	data.push(0x0A);
-	data.push(0x00);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
 	timestamp+=interval;
-	messages.push({timestamp:timestamp,message:noteoffmsg});
+	messages.push({timestamp:timestamp,message:[0x80,64,0x40]});
 
-	messages.push({timestamp:timestamp,message:noteonmsg});
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
-	data.push(wordTbl1["り"]);
 	data.push(0x0A);
 	data.push(0x00);
+	data.push(wordTbl1["り"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
 	timestamp+=interval;
-	messages.push({timestamp:timestamp,message:noteoffmsg});
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 	return messages;
 }
