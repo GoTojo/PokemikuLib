@@ -535,26 +535,26 @@ function getWin() {
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
-	data.push(wordTbl2["ちゃ"]);
-	data.push(wordTbl2["ちゃ"]);
-	data.push(wordTbl1["ら"]);
-	data.push(wordTbl2["ら"]);
-	data.push(wordTbl1["ら"]);
-	data.push(wordTbl2["ちゃ"]);
-	data.push(wordTbl2["ちゃ"]);
-	data.push(wordTbl1["ら"]);
+	data.push(wordTbl1["お"]);
+	data.push(wordTbl1["め"]);
+	data.push(wordTbl1["で"]);
+	data.push(wordTbl1["と"]);
+	data.push(wordTbl1["お"]);
+	data.push(wordTbl1["か"]);
+	data.push(wordTbl1["た"]);
+	data.push(wordTbl1["よ"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
 	timestamp+=10;
 	var notes=[
 		{note:72,time:400},
 		{note:72,time:400},
-		{note:72,time:100},
-		{note:74,time:400},
-		{note:74,time:400},
-		{note:76,time:300},
+		{note:72,time:200},
+		{note:74,time:600},
+		{note:74,time:600},
+		{note:76,time:400},
 		{note:74,time:200},
-		{note:76,time:600},
+		{note:76,time:800},
 		];
 	for (var i=0; i<notes.length;i++) {
 		messages.push({timestamp:timestamp,message:[0x90,notes[i].note,0x7f]});
