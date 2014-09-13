@@ -448,3 +448,82 @@ function getDeath() {
 	return messages;
 }
 
+function getDeath() {
+	var timestamp = 0;
+
+	var data = sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["や"]);
+	data.push(wordTbl1["ら"]);
+	data.push(wordTbl1["れ"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl1["た"]);
+	data.push(wordTbl1["よ"]);
+	data.push(wordTbl1["さ"]);
+	data.push(wordTbl1["よ"]);
+	data.push(wordTbl1["お"]);
+	data.push(wordTbl1["な"]);
+	data.push(wordTbl1["ら"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	var notes=[
+		{note:57,time:200},
+		{note:57,time:200},
+		{note:57,time:100},
+		{note:57,time:400},
+		{note:60,time:200},
+		{note:59,time:100},
+		{note:59,time:300},
+		{note:57,time:100},
+		{note:57,time:300},
+		{note:56,time:100},
+		{note:57,time:600}
+		];
+	for (var i=0; i<notes.length;i++) {
+		messages.push({timestamp:timestamp,message:[0x90,notes[i].note,0x7f]});
+		timestamp+=notes[i].time;
+		messages.push({timestamp:timestamp,message:[0x80,notes[i].note,0x40]});
+	}
+	return messages;
+}
+
+function getCharari() {
+	var timestamp = 0;
+
+	var data = sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl1["ら"]);
+	data.push(wordTbl1["り"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl1["ら"]);
+	data.push(wordTbl1["り"]);
+	data.push(wordTbl1["ら"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	var notes=[
+		{note:69,time:100},
+		{note:67,time:100},
+		{note:69,time:600},
+		{note:67,time:200},
+		{note:65,time:200},
+		{note:64,time:200},
+		{note:62,time:200},
+		{note:61,time:400},
+		{note:62,time:600},
+		];
+	for (var i=0; i<notes.length;i++) {
+		messages.push({timestamp:timestamp,message:[0x90,notes[i].note,0x7f]});
+		timestamp+=notes[i].time;
+		messages.push({timestamp:timestamp,message:[0x80,notes[i].note,0x40]});
+	}
+	return messages;
+}
