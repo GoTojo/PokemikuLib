@@ -155,6 +155,14 @@
 				}
 			}			
 		}
+		function funcwin() {
+			var messages = getWin();
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
 	</script>
 </head>
 <body>
@@ -177,6 +185,7 @@
 	<button type="button" id="itai" onclick="funcitai()">いたいっ</button>
 	<button type="button" id="urya" onclick="funcurya()">うりゃっ</button>
 	<button type="button" id="urya" onclick="funcyattane()">やったね</button>
+	<button type="button" id="urya" onclick="funcwin()">勝利</button>
 	<button type="button" id="urya" onclick="funcdeath()">死亡</button>
 	<button type="button" id="urya" onclick="funccharari()">ちゃらり〜</button>
 	</p>

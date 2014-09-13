@@ -133,6 +133,7 @@ var wordTbl2 = {
 	"りょ" : 0x76
 };
 var sysExHead39 = [0xF0, 0x43, 0x79, 0x09, 0x11];
+// 時間があればこんな関数にしたかった
 function getMessage(str,notes) {
 	var interval=100;
 	var timestamp = 0;
@@ -519,6 +520,41 @@ function getCharari() {
 		{note:62,time:200},
 		{note:61,time:400},
 		{note:62,time:600},
+		];
+	for (var i=0; i<notes.length;i++) {
+		messages.push({timestamp:timestamp,message:[0x90,notes[i].note,0x7f]});
+		timestamp+=notes[i].time;
+		messages.push({timestamp:timestamp,message:[0x80,notes[i].note,0x40]});
+	}
+	return messages;
+}
+function getWin() {
+	var timestamp = 0;
+
+	var data = sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl1["ら"]);
+	data.push(wordTbl2["ら"]);
+	data.push(wordTbl1["ら"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl2["ちゃ"]);
+	data.push(wordTbl1["ら"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	var notes=[
+		{note:72,time:400},
+		{note:72,time:400},
+		{note:72,time:100},
+		{note:74,time:400},
+		{note:74,time:400},
+		{note:76,time:300},
+		{note:74,time:200},
+		{note:76,time:600},
 		];
 	for (var i=0; i<notes.length;i++) {
 		messages.push({timestamp:timestamp,message:[0x90,notes[i].note,0x7f]});
