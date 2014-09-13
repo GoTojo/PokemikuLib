@@ -83,6 +83,30 @@
 				}
 			}			
 		}
+		function funcmigi() {
+			var messages = getMigi(100);
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
+		function funchidari() {
+			var messages = getHidari(100);
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
+		function funcmannaka() {
+			var messages = getMannaka(100);
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
 	</script>
 </head>
 <body>
@@ -98,6 +122,9 @@
 	</select>
 	<p>
 	<button type="button" id="atari" onclick="funcatari()">あたり</button>
+	<button type="button" id="migi" onclick="funcmigi()">みぎ</button>
+	<button type="button" id="hidari" onclick="funchidari()">ひだり</button>
+	<button type="button" id="mannaka" onclick="funcmannaka()">まんなか</button>
 	</p>
 	<br/>
 		<script  type="text/javascript">
