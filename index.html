@@ -131,6 +131,14 @@
 				}
 			}			
 		}
+		function funcyattane() {
+			var messages = getYattane();
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
 	</script>
 </head>
 <body>
@@ -152,6 +160,7 @@
 	<button type="button" id="ite" onclick="funcite()">いてっ</button>
 	<button type="button" id="itai" onclick="funcitai()">いたいっ</button>
 	<button type="button" id="urya" onclick="funcurya()">うりゃっ</button>
+	<button type="button" id="urya" onclick="funcyattane()">やったね</button>
 	</p>
 	<br/>
 		<script  type="text/javascript">

@@ -133,6 +133,35 @@ var wordTbl2 = {
 	"りょ" : 0x76
 };
 var sysExHead39 = [0xF0, 0x43, 0x79, 0x09, 0x11];
+function getMessage(str,notes) {
+	var interval=100;
+	var timestamp = 0;
+	var data =　sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	var count=0;
+	for (var i=0;i<str.length;i++) {
+		// ここでwordTbl2かwordTbl1か判断して入れる
+		// count++; // wordTbl2なら2文字で1増やす
+	}
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+
+	for (var i=0;i<count;i++) {
+		if (i<notes.count) {
+			var note=notes[i];
+		} else {
+			var note=60; // center C
+		}
+		messages.push({timestamp:timestamp,message:[0x90,note,0x7f]});
+		timestamp+=interval;
+		messages.push({timestamp:timestamp,message:[0x80,note,0x40]});
+	}
+	return messages;
+
+}
 function getAtari() {
 	var interval=100;
 	var timestamp = 0;
@@ -315,6 +344,35 @@ function getUrya() {
 	messages.push({timestamp:timestamp,message:[0x90,76,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,76,0x40]});
+	return messages;
+}
+
+function getYattane() {
+	var interval=90;
+	var timestamp = 0;
+	var data =　sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["や"]);
+	data.push(wordTbl2["た"]);
+	data.push(wordTbl1["ね"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	timestamp+=30;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	timestamp+=200;
+
+	messages.push({timestamp:timestamp,message:[0x90,76,0x7f]});
+	timestamp+=50;
+	messages.push({timestamp:timestamp,message:[0x80,76,0x40]});
+
+	messages.push({timestamp:timestamp,message:[0x90,84,0x7f]});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,84,0x40]});
 	return messages;
 }
 
