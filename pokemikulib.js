@@ -133,7 +133,8 @@ var wordTbl2 = {
 	"りょ" : 0x76
 };
 var sysExHead39 = [0xF0, 0x43, 0x79, 0x09, 0x11];
-function getAtari(interval) {
+function getAtari() {
+	var interval=100;
 	var timestamp = 0;
 	var data =　sysExHead39.concat();
 	var messages = [];
@@ -170,7 +171,8 @@ function getAtari(interval) {
 	return messages;
 }
 
-function getMigi(interval) {
+function getMigi() {
+	var interval=100;
 	var timestamp = 0;
 	var data =　sysExHead39.concat();
 	var messages = [];
@@ -179,7 +181,6 @@ function getMigi(interval) {
 	data.push(wordTbl1["み"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
-	messages.push({timestamp:timestamp,message:data});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
@@ -196,7 +197,8 @@ function getMigi(interval) {
 	return messages;
 }
 
-function getHidari(interval) {
+function getHidari() {
+	var interval=100;
 	var timestamp = 0;
 	var data =　sysExHead39.concat();
 	var messages = [];
@@ -233,7 +235,8 @@ function getHidari(interval) {
 	return messages;
 }
 
-function getMannaka(interval) {
+function getMannaka() {
+	var interval=100;
 	var timestamp = 0;
 	var data =　sysExHead39.concat();
 	var messages = [];
@@ -278,6 +281,72 @@ function getMannaka(interval) {
 	messages.push({timestamp:timestamp,message:data});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	return messages;
+}
+
+function getIte() {
+	var interval=90;
+	var timestamp = 0;
+	var data =　sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["い"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	data = [];
+	data =　sysExHead39.concat();
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["て"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	return messages;
+}
+
+function getItai() {
+	var interval=90;
+	var timestamp = 0;
+
+	var data =　sysExHead39.concat();
+	var messages = [];
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["い"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	data = [];
+	data =　sysExHead39.concat();
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["た"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
+	data = [];
+	data =　sysExHead39.concat();
+	data.push(0x0A);
+	data.push(0x00);
+	data.push(wordTbl1["い"]);
+	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=interval;
+	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+
 	return messages;
 }
 

@@ -76,7 +76,7 @@
 		}
 
 		function funcatari() {
-			var messages = getAtari(100);
+			var messages = getAtari();
 			if (output) {
 				for (var i=0;i<messages.length;i++) {
 					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
@@ -84,7 +84,7 @@
 			}			
 		}
 		function funcmigi() {
-			var messages = getMigi(100);
+			var messages = getMigi();
 			if (output) {
 				for (var i=0;i<messages.length;i++) {
 					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
@@ -92,7 +92,7 @@
 			}			
 		}
 		function funchidari() {
-			var messages = getHidari(100);
+			var messages = getHidari();
 			if (output) {
 				for (var i=0;i<messages.length;i++) {
 					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
@@ -100,7 +100,23 @@
 			}			
 		}
 		function funcmannaka() {
-			var messages = getMannaka(100);
+			var messages = getMannaka();
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
+		function funcite() {
+			var messages = getIte();
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
+		function funcitai() {
+			var messages = getItai();
 			if (output) {
 				for (var i=0;i<messages.length;i++) {
 					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
@@ -125,6 +141,8 @@
 	<button type="button" id="migi" onclick="funcmigi()">みぎ</button>
 	<button type="button" id="hidari" onclick="funchidari()">ひだり</button>
 	<button type="button" id="mannaka" onclick="funcmannaka()">まんなか</button>
+	<button type="button" id="ite" onclick="funcite()">いてっ</button>
+	<button type="button" id="itai" onclick="funcitai()">いたいっ</button>
 	</p>
 	<br/>
 		<script  type="text/javascript">
