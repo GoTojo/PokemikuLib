@@ -142,12 +142,12 @@ function getAtari() {
 	data.push(0x00);
 	data.push(wordTbl1["あ"]);
 	data.push(0xf7);
-	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	messages.push({timestamp:timestamp,message:data});
-	timestamp+=interval;
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
+	timestamp+=50;
 	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,64,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -155,10 +155,11 @@ function getAtari() {
 	data.push(wordTbl1["た"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,64,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,64,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -166,6 +167,8 @@ function getAtari() {
 	data.push(wordTbl1["り"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 	return messages;
@@ -180,11 +183,12 @@ function getMigi() {
 	data.push(0x00);
 	data.push(wordTbl1["み"]);
 	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
 	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -192,6 +196,8 @@ function getMigi() {
 	data.push(wordTbl1["ぎ"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 	return messages;
@@ -206,12 +212,12 @@ function getHidari() {
 	data.push(0x00);
 	data.push(wordTbl1["ひ"]);
 	data.push(0xf7);
-	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -219,10 +225,11 @@ function getHidari() {
 	data.push(wordTbl1["だ"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -230,6 +237,8 @@ function getHidari() {
 	data.push(wordTbl1["り"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 	return messages;
@@ -244,12 +253,12 @@ function getMannaka() {
 	data.push(0x00);
 	data.push(wordTbl1["ま"]);
 	data.push(0xf7);
-	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,60,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,60,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,64,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -257,10 +266,11 @@ function getMannaka() {
 	data.push(wordTbl1["ん"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,64,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,64,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -268,10 +278,11 @@ function getMannaka() {
 	data.push(wordTbl1["な"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -279,6 +290,8 @@ function getMannaka() {
 	data.push(wordTbl1["か"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 	return messages;
@@ -293,11 +306,12 @@ function getIte() {
 	data.push(0x00);
 	data.push(wordTbl1["い"]);
 	data.push(0xf7);
+	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
 	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -305,8 +319,10 @@ function getIte() {
 	data.push(wordTbl1["て"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,74,0x7f]});
 	timestamp+=interval;
-	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	messages.push({timestamp:timestamp,message:[0x80,74,0x40]});
 	return messages;
 }
 
@@ -320,12 +336,12 @@ function getItai() {
 	data.push(0x00);
 	data.push(wordTbl1["い"]);
 	data.push(0xf7);
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	timestamp+=interval;
 	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -333,10 +349,11 @@ function getItai() {
 	data.push(wordTbl1["た"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,84,0x7f]});
 	timestamp+=interval;
-	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	messages.push({timestamp:timestamp,message:[0x80,84,0x40]});
 
-	messages.push({timestamp:timestamp,message:[0x90,72,0x7f]});
 	data = [];
 	data =　sysExHead39.concat();
 	data.push(0x0A);
@@ -344,8 +361,10 @@ function getItai() {
 	data.push(wordTbl1["い"]);
 	data.push(0xf7);
 	messages.push({timestamp:timestamp,message:data});
+	timestamp+=10;
+	messages.push({timestamp:timestamp,message:[0x90,79,0x7f]});
 	timestamp+=interval;
-	messages.push({timestamp:timestamp,message:[0x80,72,0x40]});
+	messages.push({timestamp:timestamp,message:[0x80,79,0x40]});
 
 	return messages;
 }
