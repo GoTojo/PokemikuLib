@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+	<meta charset="utf-8">
+	<title>PokemikuLib Sample</title>
+	<script src="pokemikulib.js"></script>
+	<script type="text/javascript">
+		var midiAccess = null;
+		var output = null;
+
+		function onMIDIMessage(event) {
+			console.log("Receive midi" + event);
+			if (output) {
+				output.send(event.data, window.performance.now());
+			}
+		}
+
+		function listInputsAndOutputs(access) {
+			var inputs = midiAccess.inputs();
+			var outputs = midiAccess.outputs();
+
+			console.log("inputs:" + inputs.length + " " + "outputs:" + outputs.length);
+			for ( i = 0; i < inputs.length; i++) {
+				console.log("Input port #" + i + ": type:'" + inputs[i].type + "' id:'" + inputs[i].id + "' manufacturer:'" + inputs[i].manufacturer + "' name:'" + inputs[i].name + "' version:'" + inputs[i].version + "'");
+				var option = document.createElement("option");
+
+				option.setAttribute("value", "midiInput");
+				option.appendChild(document.createTextNode(inputs[i].name));
+				document.getElementById("midiInputSelect").appendChild(option);
+			}
+
+			for ( i = 0; i < outputs.length; i++) {
+				console.log("Output port #" + i + ": type:'" + outputs[i].type + "' id:'" + outputs[i].id + "' manufacturer:'" + outputs[i].manufacturer + "' name:'" + outputs[i].name + "' version:'" + outputs[i].version + "'");
+				var option = document.createElement("option");
+				option.setAttribute("value", "midiOuput");
+				option.appendChild(document.createTextNode(outputs[i].name));
+				document.getElementById("midiOutputSelect").appendChild(option);
+			}
+		}
+
+		function onMIDISuccess(access) {
+			midiAccess = access;
+			console.log("midi ready!");
+			listInputsAndOutputs(access);
+		}
+
+		function onMIDIFailure(msg) {
+			console.log("Failed to midi available- " + msg);
+		}
+
+		function selectMidiInput() {
+			var select = document.getElementById("midiInputSelect");
+			var options = document.getElementById("midiInputSelect").options;
+			var value = options.item(select.selectedIndex).value;
+			console.log("midi input selected: " + select.selectedIndex);
+			try {
+				var inputs = midiAccess.inputs();
+				var input = inputs[select.selectedIndex - 1];
+				input.onmidimessage = onMIDIMessage;
+			} catch (e) {
+				console.error("Exception! Couldn't get i/o ports." + e);
+			}
+		}
+
+		function selectMidiOutput() {
+			var select = document.getElementById("midiOutputSelect");
+			var options = document.getElementById("midiOutputSelect").options;
+			var value = options.item(select.selectedIndex).value;
+			console.log("midi output selected: " + select.selectedIndex);
+			try {
+				var outputs = midiAccess.outputs();
+				output = outputs[select.selectedIndex - 1];
+			} catch (e) {
+				console.error("Exception! Couldn't get i/o ports." + e);
+			}
+		}
+
+		function funcatari() {
+			var messages = getAtari(500);
+			if (output) {
+				for (var i=0;i<messages.length;i++) {
+					output.send(messages[i].message, window.performance.now()+messages[i].timestamp);
+				}
+			}			
+		}
+	</script>
+</head>
+<body>
+	<h4>pockmikulib test</h4>
+	<label class="control-label">MIDI In</label>
+	<select id="midiInputSelect" class="form-control" onchange="selectMidiInput()">
+		<option value="1">select input port</option>
+	</select>
+	<br>
+	<label class="control-label">MIDI Out</label>
+	<select id="midiOutputSelect" class="form-control" onchange="selectMidiOutput()">
+		<option value="1">select output port</option>
+	</select>
+	<p>
+	<button type="button" id="atari" onclick="funcatari()">あたり</button>
+	</p>
+	<br/>
+		<script  type="text/javascript">
+			midiAccess = navigator.requestMIDIAccess({
+				sysex : true
+			}).then(onMIDISuccess, onMIDIFailure);
+		</script>
+
+</body>
+</html>
