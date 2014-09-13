@@ -243,7 +243,7 @@ function getHidari() {
 function getMannaka() {
 	var interval=100;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -275,7 +275,7 @@ function getMannaka() {
 function getIte() {
 	var interval=90;
 	var timestamp = 0;
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
@@ -299,7 +299,7 @@ function getItai() {
 	var interval=90;
 	var timestamp = 0;
 
-	var data =　sysExHead39.concat();
+	var data = sysExHead39.concat();
 	var messages = [];
 	data.push(0x0A);
 	data.push(0x00);
